@@ -36,7 +36,16 @@ class Student
         INSERT INTO students(name, grade) VALUES (?,?)
       SQL
       DB[:conn].execute(sql, @name, @grade)
-      @id = D[:conn].execte("SELECT last_insert_rowid from students")[0][0]
+      @id = D[:conn].execte("SELECT last_insert_rowid() from students")[0][0]
     end
   end
+
+  def update
+    sql = <<-SQL
+      UPDATE students SET name = ? WHERE id = ?
+    SQL
+
+    DB[:conn].execute(sql, @name, @id)
+  end
+
 end
