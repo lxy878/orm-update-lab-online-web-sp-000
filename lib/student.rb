@@ -11,7 +11,6 @@ class Student
     @name = name
     @grade = grade
     @id = id
-    self.save
   end
 
   def self.create_table
@@ -43,6 +42,7 @@ class Student
 
   def self.create(name, grade)
     new_student = Student.new(name, grade)
+    new_student.save
   end
 
   def self.new_from_db(row)
