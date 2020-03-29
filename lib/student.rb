@@ -36,7 +36,7 @@ class Student
         INSERT INTO students(name, grade) VALUES (?,?)
       SQL
       DB[:conn].execute(sql, @name, @grade)
-      @id = D[:conn].execte("SELECT last_insert_rowid() from students")[0][0]
+      @id = DB[:conn].execte("SELECT last_insert_rowid() from students")[0][0]
     end
   end
 
